@@ -67,6 +67,9 @@ export default {
     };
   },
   methods: {
+    /*
+    Funcion encargada de mostrar u ocultar el carrito de compras
+    */
     cambioCarro() {
       if (this.mostrarCarro) {
         this.mostrarCarro = false;
@@ -74,6 +77,9 @@ export default {
         this.mostrarCarro = true;
       }
     },
+    /*
+    Funcion encargada de quitar un item del carrito de compras
+    */
     quitarItem(index) {
       this.mostrarCarro = false;
       this.carroCantidad--;
@@ -83,6 +89,9 @@ export default {
         this.mostrarCarro = true;
       }, 1);
     },
+    /*
+    Funcion encargada de cambiar la cantidad de un item específico
+    */
     cambioCantidad(cantidad, index) {
       this.mostrarCarro = false;
       this.carro[index].cantidadCarro = cantidad;
@@ -98,6 +107,12 @@ export default {
       });
       return sumatotal;
     },
+    /*
+    Funcion encargada de agregar items al div del carro
+    validando si es que existe ya o no en dicho objeto,
+    si ya existe, solo se incremente el numero de item 
+    y se suma al total
+    */
     agregarCarro(producto, cantidad) {
       this.mostrarCarro = false;
       this.showModal = false;
@@ -126,6 +141,10 @@ export default {
       this.productoSeleccionado = producto;
       this.showModal = true;
     },
+    /*
+    Funcion encargada de realizar el filtro del campo
+    de búsqueda
+    */
     filtroInput(filtro) {
       this.productos = this.productosAll;
       if (filtro != "") {
@@ -136,6 +155,10 @@ export default {
         );
       }
     },
+    /*
+    Funcion encargada de realizar el filtro de productos
+    por categoria para listarlos al presionar en el sidebar
+    */
     filtrarCategoria(categoria) {
       this.productos = this.productosAll;
       if (categoria != undefined) {
@@ -144,7 +167,7 @@ export default {
         );
       }
     },
-    listarProdcutos() {
+    listarProductos() {
       axios
         .get("http://sva.talana.com:8000/api/product/")
         .then((res) => {
@@ -158,7 +181,7 @@ export default {
     },
   },
   created() {
-    this.listarProdcutos();
+    this.listarProductos();
   },
 };
 </script>

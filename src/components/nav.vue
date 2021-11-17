@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-light bg-light justify-content-between cNav">
-      <a class="navbar-brand">Navbar</a>
+      <a class="navbar-brand">LOGO</a>
       <form class="form-inline">
         <input
           class="form-control mr-sm-2"

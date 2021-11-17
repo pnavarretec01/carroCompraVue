@@ -1,3 +1,16 @@
+.nombre-producto {
+  text-overflow: Ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.boton-levanta-modal-carro {
+  width: 5em;
+  background-color: black;
+}
+.icono-carrito {
+  color: white !important;
+}
 .carrito-compra {
   margin-top: 1em;
   margin-right: 4em;
@@ -7,10 +20,12 @@
   display: contents;
 }
 .carrito {
-  right: 0;
+  -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.92);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.92);
+  right: 8px;
   width: 30%;
   z-index: 9999999;
-  position: absolute;
+  position: fixed;
 }
 .modalProducto {
   margin-top: 3em;
@@ -19,12 +34,13 @@
   max-height: 26vh;
 }
 .agregarNumero {
-  width: 4em !important;
+  width: 3em !important;
 }
 .content {
-  width: 90%;
+  width: 85%;
   overflow-y: auto;
-  position: fixed;
+  overflow-x: hidden;
+  position: absolute;
   margin-top: 5em !important;
 }
 .cNav {
@@ -34,7 +50,7 @@
 }
 /* The side navigation menu */
 .sidebar {
-  margin-top: 3.5em !important;
+  margin-top: 4.5em !important;
   margin: 0;
   padding: 0;
   width: 200px;

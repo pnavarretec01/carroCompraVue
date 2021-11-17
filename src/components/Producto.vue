@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="card" style="width: 18rem">
+    <div class="card" style="width: 18rem" v-if="datos.length != 0">
       <img
         class="card-img-top imagenProducto"
         :src="datos.photo"
         alt="Card image cap"
       />
       <div class="card-body">
-        <h5 class="card-title">{{ datos.name }}</h5>
+        <h5 class="card-title nombre-producto">{{ datos.name }}</h5>
         <p class="card-text">
           $
           {{ datos.price }}
@@ -20,9 +20,10 @@
             class="card-link agregarNumero"
             type="number"
             style="float: left"
+            @change="validaNegativo"
           />
           <button
-            class="card-link"
+            class="card-link boton-levanta-modal-carro"
             data-toggle="modal"
             data-target="#modalAgregarProducto"
             style="float: left"
@@ -32,8 +33,8 @@
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="currentColor"
-              class="bi bi-cart-fill"
+              fill="white"
+              class="bi bi-cart-fill icono-carrito"
               viewBox="0 0 16 16"
             >
               <path
@@ -44,6 +45,7 @@
         </div>
       </div>
     </div>
+    <div v-else>asd</div>
   </div>
 </template>
 
@@ -64,8 +66,16 @@ export default {
     };
   },
   methods: {
+    validaNegativo() {
+      if (this.cantidad < 1) {
+        this.cantidad = 1;
+      }
+    },
     agregarProductoCarro() {
       this.$emit("agregarProducto", this.datos, this.cantidad);
+      setTimeout(() => {
+        this.cantidad = 1;
+      }, 600);
     },
   },
 };

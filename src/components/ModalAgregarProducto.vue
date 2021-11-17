@@ -40,28 +40,27 @@
                   </div>
                 </div>
                 <div class="col-6 text-left">
-                  <label>Nombre: {{ datos.name }}</label>
+                  <label><strong>Nombre:</strong> {{ datos.name }}</label>
                   <br />
-                  <label>Código: {{ datos.code }}</label>
+                  <label><strong>Código: </strong>{{ datos.code }}</label>
                   <br />
-                  <label>Precio: ${{ datos.price }}</label>
+                  <label><strong>Precio: </strong>${{ datos.price }}</label>
                   <br />
-                  <label>Cantidad:</label> &nbsp;
+                  <label><strong>Cantidad:</strong></label> &nbsp;
                   <input
+                    @change="validaPositivo"
                     class="agregarNumero"
                     v-model="cantidadItem"
                     type="number"
                   />
                   <br />
-                  <label>Sub-total: ${{ datos.price * cantidadItem }}</label>
-                  <br />
-                  <label></label>
-                  <br />
-                  <label></label>
+                  <label
+                    ><strong>Sub-total:</strong> ${{
+                      datos.price * cantidadItem
+                    }}</label
+                  >
                 </div>
-                <br />
-                <br />
-                <div class="col-12 text-justify">
+                <div class="col-12 text-justify mt-3">
                   {{ datos.description }}
                 </div>
               </div>
@@ -113,6 +112,13 @@ export default {
       subtotal: "",
       dismiss: "modal",
     };
+  },
+  methods: {
+    validaPositivo() {
+      if (this.cantidadItem < 1) {
+        this.cantidadItem = 1;
+      }
+    },
   },
   created() {
     this.cantidadItem = this.cantidad;
