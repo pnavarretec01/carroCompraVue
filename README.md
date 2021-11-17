@@ -1,6 +1,15 @@
-# prueba
+# README
 
-## Project setup
+## Clonar proyecto
+```
+git clone https://github.com/pnavarretec01/carroCompraVue.git
+```
+## Entrar a la carpeta del proyecto clonado
+```
+cd carroCompraVue
+```
+
+## Instalar dependendencias para un correcto funcionamiento
 ```
 npm install
 ```
@@ -10,15 +19,12 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Además se puede compilar y minificar para producción
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Entrar a la aplicación
 ```
-npm run lint
+Generalmente entrega el compilador entrega por defecto el link http://localhost:8080/
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
