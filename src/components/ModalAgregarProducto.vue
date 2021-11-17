@@ -1,0 +1,124 @@
+<template>
+  <div>
+    <transition name="modal" class="modalProducto">
+      <div
+        class="modal fade"
+        id="modalAgregarProducto"
+        tabindex="-1"
+        role="dialog"
+        data-backdrop="static"
+        data-keyboard="false"
+        aria-labelledby="modalAgregarProductoLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalAgregarProductoLabel">
+                Producto Agregado
+              </h5>
+              <button
+                @click="$emit('close')"
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <br />
+              <div class="row">
+                <div class="col-6">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      :src="datos.photo"
+                      alt="Card image cap"
+                    />
+                  </div>
+                </div>
+                <div class="col-6 text-left">
+                  <label>Nombre: {{ datos.name }}</label>
+                  <br />
+                  <label>Código: {{ datos.code }}</label>
+                  <br />
+                  <label>Precio: ${{ datos.price }}</label>
+                  <br />
+                  <label>Cantidad:</label> &nbsp;
+                  <input
+                    class="agregarNumero"
+                    v-model="cantidadItem"
+                    type="number"
+                  />
+                  <br />
+                  <label>Sub-total: ${{ datos.price * cantidadItem }}</label>
+                  <br />
+                  <label></label>
+                  <br />
+                  <label></label>
+                </div>
+                <br />
+                <br />
+                <div class="col-12 text-justify">
+                  {{ datos.description }}
+                </div>
+              </div>
+              <br />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  @click="$emit('close')"
+                >
+                  Seguir Comprando
+                </button>
+                <button
+                  class="btn btn-danger"
+                  v-bind:data-dismiss="dismiss"
+                  @click="$emit('agregarCarro', datos, cantidadItem)"
+                >
+                  Agregar al Carro
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    cantidad: {
+      type: Number,
+      default() {
+        return 1;
+      },
+    },
+    datos: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  data() {
+    return {
+      cantidadItem: 1,
+      subtotal: "",
+      dismiss: "modal",
+    };
+  },
+  created() {
+    this.cantidadItem = this.cantidad;
+  },
+};
+</script>
+
+<style>
+</style>

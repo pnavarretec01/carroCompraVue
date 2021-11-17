@@ -1,0 +1,160 @@
+.carrito-compra {
+  margin-top: 1em;
+  margin-right: 4em;
+  cursor: pointer;
+}
+.modal-backdrop {
+  display: contents;
+}
+.carrito {
+  right: 0;
+  width: 30%;
+  z-index: 9999999;
+  position: absolute;
+}
+.modalProducto {
+  margin-top: 3em;
+}
+.imagenProducto {
+  max-height: 26vh;
+}
+.agregarNumero {
+  width: 4em !important;
+}
+.content {
+  width: 90%;
+  overflow-y: auto;
+  position: fixed;
+  margin-top: 5em !important;
+}
+.cNav {
+  position: fixed !important;
+  z-index: 9999;
+  width: 100%;
+}
+/* The side navigation menu */
+.sidebar {
+  margin-top: 3.5em !important;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.categoriaNav {
+  cursor: pointer;
+}
+
+.sidebar-social li {
+  text-align: center;
+  width: 31.9%;
+  margin-bottom: 3px !important;
+  display: inline-block;
+  font-size: 10px;
+  padding: 0;
+}
+
+.sidebar-social i {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 32px;
+  height: 32px;
+  margin: 10px auto 0;
+  line-height: 32px;
+  text-align: center;
+  font-size: 20px;
+  color: #444444;
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+.sidebar-social a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-social a span {
+  color: black;
+  font-size: 15px;
+  padding: 5px 0 10px 0;
+  display: block;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  letter-spacing: 1px;
+}
+/* CSS para posicionar el bade cerca del carrito*/
+.cart {
+  position: relative;
+}
+
+#cart_menu_num {
+  font-size: 15px;
+  position: absolute;
+  top: 0;
+  left: 55%;
+  background: red;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2px;
+}
